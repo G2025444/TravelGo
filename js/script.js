@@ -1,6 +1,25 @@
+// =================================
+// MENU DE NAVEGACION
+// =================================
+
+const btnMenu = document.querySelector("#btnMenu");
+
+const menu = document.querySelector(".nav-links");
+
+if (btnMenu && menu) {
+
+    btnMenu.addEventListener("click", () => {
+
+        menu.classList.toggle("abierto");
+
+        btnMenu.classList.toggle("activo");
+
+    });
+
+}
 
 // =================================
-// TRAVELGO - FORMULARIO DE CONTACTO
+// FORMULARIO DE CONTACTO
 // =================================
 
 const contactForm = document.getElementById("contactForm");
@@ -23,3 +42,4 @@ if (contactForm) {
     });
 
 }
+

@@ -1,236 +1,346 @@
 
-/* =================================
+/* =========================================
    TRAVELGO - ESTILOS GENERALES
-================================= */
+========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-:root {
-    --verde: #145C46;
-    --verde-claro: #247B60;
-    --turquesa: #24B8AE;
-    --arena: #F7F3E9;
-    --blanco: #FFFFFF;
-    --texto: #33443C;
-}
+/* RESET DE ESTILOS */
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+
+/* =========================================
+   VARIABLES CSS
+========================================= */
+
+:root {
+    --color-principal: #0AB1A8;
+    --color-secundario: #17324D;
+    --color-terciario: #0B6451;
+
+    --color-fondo: #F7F9FC;
+    --color-blanco: #FFFFFF;
+    --color-texto: #263746;
+    --color-texto-claro: #DCE5EB;
+
+    --ancho-max: 1140px;
 }
 
+
+/* =========================================
+   ESTILOS GENERALES
+========================================= */
+
 body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--texto);
-    background-color: var(--blanco);
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--color-texto);
+    background-color: var(--color-blanco);
     line-height: 1.6;
 }
 
 img {
     max-width: 100%;
+    height: auto;
     display: block;
 }
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: var(--ancho-max);
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* =================================
-   ENCABEZADO Y NAVEGACION
-================================= */
+
+/* =========================================
+   ENCABEZADO
+========================================= */
 
 .header {
-    background-color: var(--blanco);
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    background-color: var(--color-blanco);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     position: relative;
-    z-index: 10;
+    z-index: 100;
 }
 
 .navbar {
-    min-height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
     flex-wrap: wrap;
-    padding: 15px 0;
+    padding: 15px 20px;
 }
+
+
+/* LOGO */
 
 .logo {
     font-size: 28px;
-    font-weight: 800;
-    color: var(--verde);
+    font-weight: bold;
+    color: var(--color-secundario);
 }
 
 .logo span {
-    color: var(--turquesa);
+    color: var(--color-principal);
 }
 
+
+/* =========================================
+   MENÚ DE NAVEGACIÓN
+========================================= */
+
+/* BASE: CELULAR */
+
 .nav-links {
-    display: flex;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
     list-style: none;
-    gap: 30px;
-    flex-wrap: wrap;
+    margin: 0;
+    padding: 1rem 0;
 }
 
 .nav-links a {
-    color: var(--texto);
-    font-size: 14px;
-    font-weight: 600;
+    color: var(--color-texto);
+    font-weight: bold;
     transition: color 0.3s;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--turquesa);
+    color: var(--color-principal);
 }
 
-/* =================================
-   PORTADA PRINCIPAL
-================================= */
 
-.hero {
-    min-height: 550px;
+/* MENÚ ABIERTO */
+
+.nav-links.abierto {
     display: flex;
-    align-items: center;
-    background:
-        linear-gradient(rgba(10, 45, 35, 0.55),
-        rgba(10, 45, 35, 0.55)),
-        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1800')
-        center/cover no-repeat;
-    color: var(--blanco);
+    flex-direction: column;
+    padding-top: 1rem;
 }
 
-.hero-content {
-    padding-top: 80px;
-    padding-bottom: 80px;
+
+/* =========================================
+   BOTÓN HAMBURGUESA
+========================================= */
+
+.hamburguesa {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
 }
 
-.hero-subtitle {
-    color: #8DE5D5;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-    font-size: 13px;
-}
-
-.hero h1 {
-    font-size: clamp(35px, 5vw, 60px);
-    line-height: 1.2;
-    max-width: 750px;
-    margin-bottom: 20px;
-}
-
-.hero-content > p:not(.hero-subtitle) {
-    max-width: 550px;
-    font-size: 16px;
-    margin-bottom: 30px;
-}
-
-.btn-primary {
-    display: inline-block;
-    background-color: var(--turquesa);
-    color: var(--blanco);
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-weight: 700;
+.hamburguesa span {
+    width: 27px;
+    height: 3px;
+    background-color: var(--color-secundario);
+    border-radius: 3px;
     transition: 0.3s;
 }
 
-.btn-primary:hover {
-    background-color: var(--verde-claro);
-    transform: translateY(-3px);
+
+/* ANIMACIÓN DEL MENÚ HAMBURGUESA */
+
+.hamburguesa.activo span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
 }
 
-/* =================================
-   INTRODUCCION
-================================= */
+.hamburguesa.activo span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburguesa.activo span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* =========================================
+   PORTADA PRINCIPAL
+========================================= */
+
+.hero {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(10, 45, 35, 0.55),
+            rgba(10, 45, 35, 0.55)
+        ),
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1800')
+        center / cover no-repeat;
+
+    color: var(--color-blanco);
+}
+
+.hero-content {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.hero .hero-subtitle {
+    color: #8DE5D5;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 10px 0 20px;
+    max-width: 750px;
+}
+
+.hero-content > p:not(.hero-subtitle) {
+    font-size: 18px;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.boton,
+.btn-primary {
+    display: inline-block;
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.boton:hover,
+.btn-primary:hover {
+    background-color: var(--color-terciario);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   INTRODUCCIÓN
+========================================= */
 
 .intro {
     text-align: center;
-    padding-top: 75px;
-    padding-bottom: 65px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
+.intro h2 {
+    color: var(--color-secundario);
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.intro p {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+
+/* ETIQUETAS DE SECCIÓN */
+
 .section-tag {
-    color: var(--turquesa);
-    font-weight: 700;
+    color: var(--color-principal);
+    font-weight: bold;
     font-size: 12px;
     letter-spacing: 2px;
     margin-bottom: 10px;
 }
 
-.intro h2,
-.section-heading h2 {
-    color: var(--verde);
-    font-size: clamp(25px, 3vw, 34px);
-    margin-bottom: 15px;
-}
 
-.intro > p:last-child {
-    max-width: 700px;
-    margin: 0 auto;
-    color: #69766F;
-}
-
-/* =================================
-   TARJETAS DE DESTINOS
-================================= */
-
-.featured {
-    padding-top: 25px;
-    padding-bottom: 85px;
-}
+/* =========================================
+   TÍTULOS DE SECCIONES
+========================================= */
 
 .section-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    color: var(--color-secundario);
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: var(--color-texto);
 }
 
 .text-link {
-    color: var(--verde-claro);
-    font-weight: 600;
+    color: var(--color-terciario);
+    font-weight: bold;
 }
 
+
+/* =========================================
+   TARJETAS
+========================================= */
+
+.featured {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.cards,
 .cards-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    justify-content: center;
+    gap: 1rem;
 }
 
+.tarjeta,
 .destination-card {
-    flex: 1 1 280px;
-    min-width: 0;
-    background-color: var(--blanco);
-    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    background-color: var(--color-blanco);
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.09);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
     transition: transform 0.3s;
 }
 
+.tarjeta:hover,
 .destination-card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-5px);
 }
 
+
+/* IMÁGENES DE LAS TARJETAS */
+
+.cards img,
+.tarjeta img,
 .destination-card img {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
+    height: 200px;
+    object-fit: contain;
 }
 
 .card-content {
@@ -238,271 +348,141 @@ a {
 }
 
 .card-content h3 {
-    color: var(--verde);
-    font-size: 20px;
-    margin-bottom: 8px;
+    color: var(--color-secundario);
+    margin-top: 0;
 }
 
 .card-content p {
-    color: #69766F;
-    font-size: 14px;
+    color: var(--color-texto);
 }
 
-/* =================================
-   PIE DE PAGINA
-================================= */
 
-.footer {
-    background-color: var(--verde);
-    color: var(--blanco);
-    padding: 40px 0;
-    text-align: center;
-}
-
-.footer-logo {
-    color: var(--blanco);
-}
-
-.footer-content > p {
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-.copyright {
-    color: #C5DED3;
-    font-size: 12px !important;
-    margin-top: 20px !important;
-}
-
-/* =================================
-   RESPONSIVE - 991 PX
-================================= */
-
-@media (max-width: 991px) {
-
-    .navbar {
-        justify-content: center;
-    }
-
-    .nav-links {
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .hero {
-        min-height: 480px;
-    }
-
-    .destination-card {
-        flex-basis: 260px;
-    }
-}
-
-/* =================================
-   RESPONSIVE - 701 PX
-================================= */
-
-@media (max-width: 701px) {
-
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .nav-links {
-        gap: 15px;
-    }
-
-    .hero {
-        min-height: 430px;
-        text-align: center;
-    }
-
-    .hero-content > p:not(.hero-subtitle) {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .section-heading {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .destination-card {
-        flex-basis: 100%;
-    }
-}
-
-/* =================================
-   RESPONSIVE - 501 PX
-================================= */
-
-@media (max-width: 501px) {
-
-    .container {
-        width: 92%;
-    }
-
-    .logo {
-        font-size: 25px;
-    }
-
-    .nav-links {
-        gap: 10px 15px;
-    }
-
-    .nav-links a {
-        font-size: 12px;
-    }
-
-    .hero {
-        min-height: 400px;
-    }
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero-content > p:not(.hero-subtitle) {
-        font-size: 14px;
-    }
-
-    .intro {
-        padding-top: 50px;
-        padding-bottom: 45px;
-    }
-
-    .featured {
-        padding-bottom: 55px;
-    }
-
-    .destination-card img {
-        height: 190px;
-    }
-}
-
-/* =================================
-   BANNER DE PAGINAS SECUNDARIAS
-================================= */
+/* =========================================
+   BANNER DE PÁGINAS SECUNDARIAS
+========================================= */
 
 .page-banner {
-    background: linear-gradient(120deg, #145C46, #24B8AE);
-    color: white;
-    padding: 75px 0;
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
     text-align: center;
+    padding: 60px 20px;
 }
 
 .page-banner h1 {
-    font-size: clamp(30px, 5vw, 45px);
-    margin-bottom: 12px;
+    font-size: 35px;
+    margin: 0 0 10px;
 }
 
-.page-banner p:last-child {
-    font-size: 15px;
+.page-banner p {
+    margin: 0;
 }
 
-/* =================================
+
+/* =========================================
    PRECIOS DE PAQUETES
-================================= */
+========================================= */
 
 .price {
-    color: var(--turquesa) !important;
-    font-size: 18px !important;
-    font-weight: 700;
-    margin-top: 12px;
-}
-
-/* =================================
-   PREGUNTAS FRECUENTES
-================================= */
-
-.faq-section {
-    background-color: var(--arena);
-    padding: 65px 0;
-}
-
-.accordion {
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-.accordion-item {
-    background-color: white;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
-}
-
-.accordion-item summary {
-    color: var(--verde);
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.accordion-item p {
-    color: #69766F;
-    font-size: 14px;
+    color: var(--color-terciario);
+    font-size: 22px;
+    font-weight: bold;
     margin-top: 15px;
 }
 
-/* =================================
-   PAGINA DE CONTACTO
-================================= */
+
+/* =========================================
+   ACORDEÓN
+========================================= */
+
+.faq-section {
+    padding: 60px 20px;
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+}
+
+.faq-section h2 {
+    text-align: center;
+    color: var(--color-secundario);
+    margin-bottom: 30px;
+}
+
+.accordion {
+    width: 100%;
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--color-texto-claro);
+    margin-bottom: 10px;
+}
+
+.accordion .titulo,
+.accordion-item summary {
+    padding: 15px;
+    background-color: var(--color-fondo);
+    color: var(--color-secundario);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.accordion .contenido,
+.accordion-item p {
+    padding: 15px;
+    margin: 0;
+    background-color: var(--color-blanco);
+}
+
+
+/* ACORDEÓN SEGÚN LA ESTRUCTURA DEL PROFESOR */
+
+.accordion .contenido {
+    display: none;
+    padding: 0 1rem;
+}
+
+.accordion .item.activo .contenido {
+    display: block;
+}
+
+
+/* =========================================
+   CONTACTO
+========================================= */
 
 .contact-section {
     display: flex;
     flex-wrap: wrap;
-    gap: 45px;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    gap: 35px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
-.contact-info {
-    flex: 1 1 280px;
+.contact-info,
+.contact-form {
+    width: 100%;
 }
 
-.contact-info h2 {
-    color: var(--verde);
-    font-size: 30px;
+.contact-info h2,
+.contact-form h2 {
+    color: var(--color-secundario);
+}
+
+.contact-info p {
     margin-bottom: 15px;
 }
 
-.contact-info > p {
-    color: #69766F;
-    margin-bottom: 25px;
-}
 
-.contact-detail {
-    margin-bottom: 20px;
-}
-
-.contact-detail h3 {
-    color: var(--verde);
-    font-size: 16px;
-}
-
-.contact-detail p {
-    color: #69766F;
-}
+/* FORMULARIO */
 
 .contact-form {
-    flex: 1 1 350px;
-    background-color: var(--arena);
-    padding: 30px;
-    border-radius: 15px;
-}
-
-.contact-form h2 {
-    color: var(--verde);
-    margin-bottom: 20px;
+    background-color: var(--color-fondo);
+    padding: 25px;
+    border-radius: 10px;
 }
 
 .contact-form label {
     display: block;
-    margin: 12px 0 6px;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .contact-form input,
@@ -510,55 +490,194 @@ a {
 .contact-form textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #D6DED7;
-    border-radius: 7px;
-    font-family: inherit;
-    font-size: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
 }
 
 .contact-form textarea {
+    min-height: 120px;
     resize: vertical;
 }
 
-.contact-form button {
-    border: none;
-    cursor: pointer;
-    margin-top: 18px;
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: 2px solid var(--color-principal);
+    border-color: var(--color-principal);
 }
 
 #formMessage {
-    margin-top: 12px;
-    color: var(--verde);
-    font-size: 14px;
+    color: var(--color-terciario);
+    font-weight: bold;
+    margin-top: 15px;
 }
 
-/* =================================
-   RESPONSIVE CONTACTO
-================================= */
 
-@media (max-width: 701px) {
-    .contact-section {
-        gap: 30px;
-        padding-top: 45px;
-        padding-bottom: 45px;
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+
+.footer {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    padding: 35px 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    align-items: center;
+}
+
+.footer .logo {
+    color: var(--color-blanco);
+}
+
+.footer .logo span {
+    color: var(--color-principal);
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer a:hover {
+    color: var(--color-principal);
+}
+
+
+/* =========================================
+   TABLET - 501 PX
+========================================= */
+
+@media (min-width: 501px) {
+
+    .tarjeta,
+    .destination-card {
+        width: 45%;
     }
 
+    .hero h1 {
+        font-size: 2.1rem;
+    }
+
+}
+
+
+/* =========================================
+   TABLET - 701 PX
+========================================= */
+
+@media (min-width: 701px) {
+
+    .contact-info,
     .contact-form {
-        padding: 22px;
+        width: calc(50% - 18px);
     }
 
-    .page-banner {
-        padding: 55px 0;
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
     }
+
 }
 
-@media (max-width: 501px) {
-    .contact-info h2 {
+
+/* =========================================
+   COMPUTADORA - 991 PX
+========================================= */
+
+@media (min-width: 991px) {
+
+    /* MENÚ NORMAL EN PANTALLA GRANDE */
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        padding: 0;
+    }
+
+    .hamburguesa {
+        display: none;
+    }
+
+    .nav-links.abierto {
+        flex-direction: row;
+        padding-top: 0;
+    }
+
+
+    /* TARJETAS */
+
+    .tarjeta,
+    .destination-card {
+        width: calc(33.333% - 0.67rem);
+    }
+
+
+    /* PORTADA */
+
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+
+}
+
+
+/* =========================================
+   CELULARES - HASTA 700 PX
+========================================= */
+
+@media (max-width: 700px) {
+
+    .hero {
+        min-height: 400px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .page-banner h1 {
+        font-size: 28px;
+    }
+
+}
+
+
+/* =========================================
+   CELULARES PEQUEÑOS - HASTA 500 PX
+========================================= */
+
+@media (max-width: 500px) {
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .intro h2,
+    .section-heading h2 {
         font-size: 25px;
     }
 
-    .contact-form {
-        padding: 18px;
+    .tarjeta,
+    .destination-card {
+        width: 100%;
     }
+
 }
-/* Sitio adaptado y probado en 991px, 701px y 501px */
+
+
+
