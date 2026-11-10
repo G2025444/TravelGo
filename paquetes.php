@@ -1,69 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Conoce los paquetes turísticos de TravelGo.">
-
-    <title>Paquetes | TravelGo</title>
-
-    <link rel="stylesheet" href="css/estilos.css">
-
-    <script src="js/script.js" defer></script>
-</head>
-
-<body>
-
-    <!-- ENCABEZADO -->
-
-    <header class="header">
-
-        <nav class="navbar container">
-
-            <!-- LOGO -->
-
-            <a href="index.html" class="logo">
-                Travel<span>Go</span>
-            </a>
-
-            <!-- BOTÓN HAMBURGUESA -->
-
-            <button class="hamburguesa" id="btnMenu" aria-label="Abrir menú" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <!-- MENÚ DE NAVEGACIÓN -->
-
-            <ul class="nav-links">
-
-                <li>
-                    <a href="index.html">Inicio</a>
-                </li>
-
-                <li>
-                    <a href="destinos.html">Destinos</a>
-                </li>
-
-                <li>
-                    <a href="paquetes.html" class="active">Paquetes</a>
-                </li>
-
-                <li>
-                    <a href="contacto.html">Contacto</a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </header>
-
-
+ <?php include "header.php"; ?>
     <main>
 
         <!-- BANNER DE PAQUETES -->
@@ -277,29 +212,6 @@
 
 
     <!-- PIE DE PÁGINA -->
-
-    <footer class="footer">
-
-        <div class="container footer-content">
-
-            <a href="index.html" class="logo footer-logo">
-                Travel<span>Go</span>
-            </a>
-
-            <p>
-                Descubre el mundo, vive la aventura.
-            </p>
-
-            <p class="copyright">
-                &copy; 2026 TravelGo. Todos los derechos reservados.
-            </p>
-
-        </div>
-
-    </footer>
-
-</body>
-
-</html>
+ <?php include "footer.php"; ?>
 
 
